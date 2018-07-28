@@ -1,0 +1,24 @@
+<h2 class="restaurants_title">3 Michelin Stars Restaurants - Paris</h2>
+
+
+   <div class="row">
+  <% @restaurants.each do |restaurant| %>
+     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <div class="card">
+      <ul>
+        <h3><%= image_tag "france.png",class: "image"%><%= restaurant.name%></h3>
+        <div class="restaurant_details">
+        <li>Address: <%= restaurant.address%></li>
+        <li>Phone Number: <%= restaurant.phone_number%></li>
+        <li>Category: <%= restaurant.category.capitalize%></li>
+      </div>
+        <%= link_to "See reviews", restaurant_path(restaurant.id) %>
+      </ul>
+    </div>
+
+</div>
+  <% end %>
+   </div>
+
+
+<%= link_to "add new restaurant", new_restaurant_path %>
